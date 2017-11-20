@@ -1,0 +1,109 @@
+create table product(
+prodId int(4),
+prodName varchar(30),
+prodPicName varchar(50),
+prodDescrip varchar(1000),
+prodPrice decimal(6,2)
+prodQuantity int(4)
+);
+
+CREATE SEQUENCE seq_ID
+MINVALUE 1
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (seq_ID.nextval,'Ambrosia Devon Custard 400g',
+'AmbrosiaDevonCustard400g.jpeg','Devon Custard  Creamy & delicious  A source of calcium  No artificial colours  No preservatives  100% natural flavours
+  Full of dairy goodness  Suitable for vegetarians' ,1.00,15);
+
+insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (seq_ID.nextval,'Ariel Washing Liquid 2L',
+'ArielWashingLiquid2L.jpeg','Outstanding stain removal in the 1st wash  Comes with the innovative pre-treat cap which allows to dose correctly and enables 
+targeted action on tough stains  Thanks to its formula and innovative pre-treat cap, Ariel removes stains as of the first wash' , 5.00, 15);
+
+insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (seq_ID.nextval,'BBQ Chicken Tikka Kebabs',
+'BBQChickenTikkaKebabs.jpeg','Diced chicken thigh fillet kebabs with a tikka marinade' , 3.00, 15);
+
+insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (seq_ID.nextval,'Bulmers Pear Cider 568ml',
+'BulmersPearCider568ml.jpeg','Bulmers Pear Cider compliments the colourful Bulmers range, offering a flavour for everyone, perfect for mixed group drinking occasions' , 2.00, 15);
+
+insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (seq_ID.nextval,'Semi Skimmed Milk 1L',
+'SemiSkimmedMilk1L.jpeg','Fresh British Pasteurised Filtered Homogenised Standardised Semi Skimmed Milk  Great taste 2015  Easy to digest' , 1.00, 15);
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+$creation = "create table product(
+prodId int(4)  AUTO_INCREMENT PRIMARY KEY,
+prodName varchar(30),
+prodPicName varchar(50),
+prodDescrip varchar(1000),
+prodPrice decimal(6,2),
+prodQuantity int(4)
+)";
+
+if (mysql_query($creation, $conn)) {
+    echo "Table product created successfully";
+} else {
+    echo "Error creating table: " . mysql_error($conn);
+}
+
+
+if (mysql_query( $creation, $conn)) {
+    echo "Table product created successfully";
+} else {
+    echo "Error creating table: " . mysql_error($conn);
+}
+
+
+$sql="insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (DEFAULT,'Ambrosia Devon Custard 400g',
+'AmbrosiaDevonCustard400g.jpeg','Devon Custard  Creamy & delicious  A source of calcium  No artificial colours  No preservatives  100% natural flavours
+  Full of dairy goodness  Suitable for vegetarians' ,1.00,15)";
+
+if (mysql_query( $sql, $conn)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysql_error($conn);
+}
+
+$sql="insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (DEFAULT,'Ariel Washing Liquid 2L',
+'ArielWashingLiquid2L.jpeg','Outstanding stain removal in the 1st wash  Comes with the innovative pre-treat cap which allows to dose correctly and enables 
+targeted action on tough stains  Thanks to its formula and innovative pre-treat cap, Ariel removes stains as of the first wash' , 5.00, 15)";
+
+if (mysql_query( $sql, $conn)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysql_error($conn);
+}
+
+$sql="insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (DEFAULT,'BBQ Chicken Tikka Kebabs',
+'BBQChickenTikkaKebabs.jpeg','Diced chicken thigh fillet kebabs with a tikka marinade' , 3.00, 15)";
+
+if (mysql_query( $sql,$conn)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysql_error($conn);
+}
+
+$sql="insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (DEFAULT,'Bulmers Pear Cider 568ml',
+'BulmersPearCider568ml.jpeg','Bulmers Pear Cider compliments the colourful Bulmers range, offering a flavour for everyone, perfect for mixed group drinking occasions' , 2.00, 15)";
+
+if (mysql_query( $sql, $conn)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysql_error($conn);
+}
+
+$sql="insert into product(prodId,prodName, prodPicName, prodDescrip, prodPrice, prodQuantity) values (DEFAULT,'Semi Skimmed Milk 1L',
+'SemiSkimmedMilk1L.jpeg','Fresh British Pasteurised Filtered Homogenised Standardised Semi Skimmed Milk  Great taste 2015  Easy to digest' , 1.00, 15)";
+
+
+
+if (mysql_query( $sql, $conn)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysql_error($conn);
+}
+mysqli_close($conn);
+

@@ -1,0 +1,13 @@
+<?php
+$dbhost = 'elephant.ecs.westminster.ac.uk';
+$dbuser = 'w1560234';
+$dbpass = 'bGBe0fCnP0dW';
+
+$conn = mysql_connect($dbhost, $dbuser, $dbpass) ;
+if (!$conn)
+  {
+  die('Could not connect: ' . mysql_error());
+  }
+mysql_select_db("w1560234_0", $conn);
+echo "connected to database!";
+?>

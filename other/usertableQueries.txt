@@ -1,0 +1,27 @@
+$usercreation = "create table users(
+userId int(4)  AUTO_INCREMENT PRIMARY KEY,
+userType varchar(30),
+userFName varchar(30),
+userSName varchar(30),
+userAddress varchar(50),
+userPostCode varchar(20),
+userTelNo varchar(15),
+userEmail varchar(40) UNIQUE,
+userPassword varchar(30)
+)";
+
+if (mysql_query($usercreation)) {
+    echo "Table users created successfully";
+} else {
+    echo "Error creating table: " . mysql_error($conn);
+}
+
+
+$sql="insert into users(userId , userType, userFName, userSName, userAddress, userPostCode, userTelNo, userEmail, userPassword ) values (DEFAULT,'',
+'Donie','Disney' ,'23 Emma Lane UK', '00100', '02122678889','donie@disney.com','123')";
+
+if (mysql_query($sql, $conn)) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $sql . "<br>" . mysql_error($conn);
+}

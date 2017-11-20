@@ -1,0 +1,34 @@
+
+$createOrder = "CREATE TABLE orders(
+orderNo INT(4) NOT NULL AUTO_INCREMENT,
+userId INT(4) NOT NULL,
+orderDateTime DATETIME NOT NULL,
+orderTotal DECIMAL(8,2) NOT NULL,
+PRIMARY KEY(orderNo),
+FOREIGN KEY(userId) REFERENCES users(userId)
+)";
+
+if (mysql_query($createOrder , $conn)) {
+    echo "Table order created successfully";
+} else {
+    echo "Error creating table: " . mysql_error($conn);
+}
+
+
+
+$createTableOrderLine = "create table order_line(
+orderLineId INT(4) NOT NULL AUTO_INCREMENT,
+orderNo INT(4) NOT NULL,
+prodId INT(4) NOT NULL,
+quantityOrdered INT(4) NOT NULL,
+subTotal DECIMAL(8,2) NOT NULL,
+PRIMARY KEY(orderLineId),
+FOREIGN KEY(orderNo) REFERENCES orders(orderNo),
+FOREIGN KEY(prodId) REFERENCES product(prodId)
+)";
+
+if (mysql_query($createTableOrderLine , $conn)) {
+    echo "Table order_line created successfully";
+} else {
+    echo "Error creating table: " . mysql_error($conn);
+}
